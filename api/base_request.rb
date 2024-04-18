@@ -30,6 +30,8 @@ module API
       # query = to_query(query_params)
       url = URI.parse(uri)
       url.query = URI.encode_www_form(query_params)
+      request = Net::HTTP::Get.new(url)
+      request['Accept-Language'] = API::ACCEPT_LANGUAGE
 
       retries = 0
       response = nil
@@ -37,8 +39,10 @@ module API
       loop do
         puts "RETRY #{self} №#{retries+1}"
 
-        # url = URI.parse("#{uri}?#{query}")
-        response = response_class.new(Net::HTTP.get(url))
+        response = Net::HTTP.start(url.host, url.port, use_ssl: url.scheme == 'https') { |http|
+          http.request(request)
+        }
+        response = response_class.new(response.body)
         
         retries += 1
 

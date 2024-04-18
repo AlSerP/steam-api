@@ -2,7 +2,7 @@ require_relative 'api'
 
 # item = 'StatTrak™ M4A1-S | Hyper Beast (Minimal Wear)'
 # item = 'Африканская'
-item = 'Safari Mesh'
+item = 'awp | азимов (после полевых)'
 
 request = API::ItemSearch::Request.new(item)
 response = request.send

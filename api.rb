@@ -11,6 +11,8 @@ module API
 
   MAX_RETRIES = 15
   RETRY_DELAY = 2 # sec
+
+  ACCEPT_LANGUAGE = 'ru-RU,ru'
 end
 
 require_relative 'api/base_response'

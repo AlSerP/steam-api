@@ -6,7 +6,6 @@ module API
 
       def initialize(params)
         super(params)
-        puts "RESPONSE #{@response["searchdata"]["query"]}"
 
         begin
           if @response["success"]
