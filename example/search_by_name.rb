@@ -1,10 +1,10 @@
-require_relative 'api'
+require 'steam-api'
 
 # item = 'StatTrak™ M4A1-S | Hyper Beast (Minimal Wear)'
 # item = 'Африканская'
 item = 'awp | азимов (после полевых)'
 
-request = API::ItemSearch::Request.new(item)
+request = SteamAPI::ItemSearch::Request.new(item)
 response = request.send
 
 puts "RESULT HASH #{response.search_result_hash}"
@@ -12,7 +12,7 @@ puts "RESULT HASH #{response.search_result_hash}"
 result_hash = response.search_result_hash
 
 if result_hash
-  request = API::ItemPrice::Request.new(result_hash)
+  request = SteamAPI::ItemPrice::Request.new(result_hash)
   response = request.send
 
   # puts "RESPONSE IS #{response.inspect}"

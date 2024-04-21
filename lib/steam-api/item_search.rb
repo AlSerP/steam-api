@@ -1,4 +1,4 @@
-module API
+module SteamAPI
   module ItemSearch
     RESULT_SIZE = 10
   end

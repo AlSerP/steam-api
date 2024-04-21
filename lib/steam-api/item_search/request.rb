@@ -1,6 +1,6 @@
-module API
+module SteamAPI
   module ItemSearch
-    class Request < API::BaseRequest
+    class Request < SteamAPI::BaseRequest
       def initialize(query)
         super()
 
@@ -10,13 +10,13 @@ module API
       def query_params
         super().merge ({
           norender: 1,
-          count: API::ItemSearch::RESULT_SIZE,
+          count: SteamAPI::ItemSearch::RESULT_SIZE,
           query: @query
         })
       end
 
       def response_class
-        API::ItemSearch::Response
+        SteamAPI::ItemSearch::Response
       end
 
       def uri

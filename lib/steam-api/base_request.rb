@@ -1,4 +1,4 @@
-module API
+module SteamAPI
   class BaseRequest
     def initialize
       @app_id = APP_ID
@@ -17,7 +17,7 @@ module API
     end
 
     def response_class
-      API::BaseResponse
+      SteamAPI::BaseResponse
     end
 
     def uri; end
@@ -31,7 +31,7 @@ module API
       url = URI.parse(uri)
       url.query = URI.encode_www_form(query_params)
       request = Net::HTTP::Get.new(url)
-      request['Accept-Language'] = API::ACCEPT_LANGUAGE
+      request['Accept-Language'] = SteamAPI::ACCEPT_LANGUAGE
 
       retries = 0
       response = nil

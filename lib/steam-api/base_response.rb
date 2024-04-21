@@ -1,4 +1,4 @@
-module API
+module SteamAPI
   class BaseResponse
     def initialize(params)
       @response = params.is_a?(String) ? JSON.parse(params) : params

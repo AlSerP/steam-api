@@ -1,6 +1,6 @@
-module API
+module SteamAPI
   module ItemPrice
-    class Request < API::BaseRequest
+    class Request < SteamAPI::BaseRequest
       def initialize(item_name)
         super()
 
@@ -18,7 +18,7 @@ module API
       end
 
       def response_class
-        API::ItemPrice::Response
+        SteamAPI::ItemPrice::Response
       end
     end
   end

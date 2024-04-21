@@ -1,6 +1,6 @@
-module API
+module SteamAPI
   module ItemPrice
-    class Response < API::BaseResponse
+    class Response < SteamAPI::BaseResponse
       attr_reader :lowest_price, :median_price, :volume
 
       def initialize(params)

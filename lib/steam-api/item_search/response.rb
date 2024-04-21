@@ -1,6 +1,6 @@
-module API
+module SteamAPI
   module ItemSearch
-    class Response < API::BaseResponse
+    class Response < SteamAPI::BaseResponse
       attr_reader :search_result, :search_result_hash
       attr_reader :results
 

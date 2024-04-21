@@ -1,4 +1,4 @@
-module API
+module SteamAPI
   module ItemPrice
   end
 end
