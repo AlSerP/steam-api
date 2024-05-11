@@ -4,8 +4,12 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-require_relative "steam-api/version"
-require_relative "steam-api/settings"
+require_relative 'steam-api/version'
+require_relative 'steam-api/settings'
+
+# Custom errors
+
+require_relative 'steam-api/errors/stam_response_error'
 
 # Base models
 require_relative 'steam-api/base_response'

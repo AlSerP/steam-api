@@ -13,7 +13,7 @@ module SteamAPI
           @volume = @response['volume']
         end
         rescue NoMethodError => e
-          puts "ERROR #{e.exception} WITH #{params}"
+          raise SteamResponseError.new(e.message, params)
         end
       end
     end

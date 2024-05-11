@@ -19,7 +19,7 @@ module SteamAPI
             end
           end
         rescue NoMethodError => e
-          puts "ERROR #{e.exception} WITH #{params}"
+          raise SteamResponseError.new(e.message, params)
         end
       end
 
