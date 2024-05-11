@@ -1,4 +1,4 @@
-class SteamResponseError < StandartError
+class SteamResponseError < StandardError
   attr_reader :response
 
   def initialize(message, response)
