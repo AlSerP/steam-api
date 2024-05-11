@@ -9,7 +9,7 @@ require_relative 'steam-api/settings'
 
 # Custom errors
 
-require_relative 'steam-api/errors/stam_response_error'
+require_relative 'steam-api/errors/steam_response_error'
 
 # Base models
 require_relative 'steam-api/base_response'
