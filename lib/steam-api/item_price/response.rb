@@ -6,15 +6,17 @@ module SteamAPI
       def initialize(params)
         super(params)
 
-        begin
-        if @response["success"]
+        if !empty? && @response["success"]
           @lowest_price = @response['lowest_price']
           @median_price = @response['lowest_price']
           @volume = @response['volume']
         end
-        rescue NoMethodError => e
-          raise SteamResponseError.new(e.message, params)
-        end
+      rescue NoMethodError => e
+        raise SteamResponseError.new(e.message, params)
+      end
+
+      def empty?
+        @response.nil?
       end
     end
   end
