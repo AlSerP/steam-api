@@ -6,7 +6,7 @@ module SteamAPI
       def initialize(params)
         super(params)
 
-        if !empty? && @response["success"]
+        if !empty? && success?
           @lowest_price = @response['lowest_price']
           @median_price = @response['lowest_price']
           @volume = @response['volume']

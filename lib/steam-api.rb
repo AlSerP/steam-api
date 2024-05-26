@@ -18,6 +18,7 @@ require_relative 'steam-api/base_request'
 # API sections
 require_relative 'steam-api/item_search'
 require_relative 'steam-api/item_price'
+require_relative 'steam-api/inventory'
 
 module SteamAPI
   class Error < StandardError; end

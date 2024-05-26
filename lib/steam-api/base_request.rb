@@ -27,7 +27,6 @@ module SteamAPI
     end
 
     def send
-      # query = to_query(query_params)
       url = URI.parse(uri)
       url.query = URI.encode_www_form(query_params)
       request = Net::HTTP::Get.new(url)
@@ -37,8 +36,6 @@ module SteamAPI
       response = nil
 
       loop do
-        puts "RETRY #{self} №#{retries+1}"
-
         response = Net::HTTP.start(url.host, url.port, use_ssl: url.scheme == 'https') { |http|
           http.request(request)
         }
@@ -46,12 +43,8 @@ module SteamAPI
         
         retries += 1
 
-        # puts "EMPTY? #{response.empty?}"
-        # puts "RETRIES AVIABLE? #{retries < MAX_RETRIES}"
-        break unless response.empty? && retries < MAX_RETRIES
-        # break if  not response.empty? || retries >= MAX_RETRIES
-        
         sleep(RETRY_DELAY)
+        break unless response.empty? && retries < MAX_RETRIES
       end
       
       response

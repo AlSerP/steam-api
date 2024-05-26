@@ -6,21 +6,18 @@ module SteamAPI
 
       def initialize(params)
         super(params)
-
-        begin
-          if @response["success"]
-            puts "RESPONSE COUNT #{@response["total_count"]}"
-            
-            if @response["total_count"] > 0
-              @results = @response["results"]
-              puts @results[0]["name"]
-              @search_result = @results[0]["name"]
-              @search_result_hash = @results[0]["hash_name"]
-            end
+        if success?
+          puts "RESPONSE COUNT #{@response["total_count"]}"
+          
+          if @response["total_count"] > 0
+            @results = @response["results"]
+            puts @results[0]["name"]
+            @search_result = @results[0]["name"]
+            @search_result_hash = @results[0]["hash_name"]
           end
-        rescue NoMethodError => e
-          raise SteamResponseError.new(e.message, params)
         end
+      rescue NoMethodError => e
+        raise SteamResponseError.new(e.message, params)
       end
 
       def empty?
